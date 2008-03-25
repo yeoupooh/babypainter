@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	xmlns:drawing="drawing.*"
+	windowComplete="maximize()"
+	>
+	
+	<mx:VBox x="0" y="0" height="100%" width="100%">
+	
+		<mx:HBox x="0" width="100%" y="0">
+		
+			<mx:Button label="clear" click="drawingCanvas.clearAll()"/>
+			
+			<mx:ColorPicker id="fgColorPicker" enabled="true" change="drawingCanvas.fgColor = fgColorPicker.selectedColor;" width="100" height="100%" selectedColor="#000000"/>
+			<mx:ColorPicker width="100" id="bgColorPicker" selectedColor="#FFFFFF"  change="drawingCanvas.bgColor = bgColorPicker.selectedColor;" />
+			
+			<mx:HSlider height="100%" id="lineThicknessSlider" minimum="1" maximum="10" snapInterval="1" enabled="true" liveDragging="true" allowTrackClick="true">
+				<mx:change>drawingCanvas.lineThickness = lineThicknessSlider.value</mx:change>
+			</mx:HSlider>
+			
+		</mx:HBox>
+			
+		<drawing:DrawingCanvas width="100%" height="100%" id="drawingCanvas" resize="drawingCanvas.clearAll()">
+			
+		</drawing:DrawingCanvas>
+		
+	</mx:VBox>
+	
+</mx:WindowedApplication>
