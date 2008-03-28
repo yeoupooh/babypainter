@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace BabyPainter
 {
@@ -14,6 +15,8 @@ namespace BabyPainter
         private Color m_lineColor = Color.Blue;
 
         private Point m_prevLoc;
+
+        private GraphicsPath m_gp;
 
         public FormMain()
         {
@@ -30,6 +33,7 @@ namespace BabyPainter
             if (e.Button == MouseButtons.Left)
             {
                 m_prevLoc = e.Location;
+                m_gp = new GraphicsPath();
             }
         }
 
@@ -40,7 +44,9 @@ namespace BabyPainter
                 Graphics g = this.CreateGraphics();
                 using (Pen p = new Pen(m_lineColor, m_lineWidth))
                 {
-                    g.DrawLine(p, m_prevLoc, e.Location);
+                    m_gp.AddLine(m_prevLoc, e.Location);
+                    //g.DrawLine(p, m_prevLoc, e.Location);
+                    g.DrawPath(p, m_gp);
                 }
                 m_prevLoc = e.Location;
             }
@@ -56,6 +62,11 @@ namespace BabyPainter
                     g.DrawLine(p, m_prevLoc, e.Location);
                 }
                 m_prevLoc = e.Location;
+            }
+
+            if (m_gp != null)
+            {
+                m_gp = null;
             }
         }
 
