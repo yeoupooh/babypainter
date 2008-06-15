@@ -37,6 +37,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorChangedEvent.cs" />
+    <Compile Include="DrawingCanvas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawingCanvas.Designer.cs">
+      <DependentUpon>DrawingCanvas.cs</DependentUpon>
+    </Compile>
     <Compile Include="DrawingObject.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -71,6 +77,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DrawingCanvas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DrawingCanvas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
