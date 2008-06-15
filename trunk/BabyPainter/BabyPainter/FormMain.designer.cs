@@ -44,8 +44,8 @@
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "New";
             this.buttonNew.UseVisualStyleBackColor = true;
-            this.buttonNew.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonNew_Paint);
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
+            this.buttonNew.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonNew_Paint);
             // 
             // buttonExit
             // 
@@ -103,9 +103,10 @@
             this.Name = "FormMain";
             this.Text = "Baby Painter";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMain_Paint);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseUp);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseMove);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseDown);
             this.ResumeLayout(false);
 
         }

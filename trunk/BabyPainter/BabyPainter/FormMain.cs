@@ -103,6 +103,10 @@ namespace BabyPainter
 
         private void buttonNew_Paint(object sender, PaintEventArgs e)
         {
+        }
+
+        private void FormMain_Paint(object sender, PaintEventArgs e)
+        {
             foreach (DrawingObject drawingObject in mDrawingObjects)
             {
                 e.Graphics.DrawPath(drawingObject.Pen, drawingObject.GraphicsPath);
