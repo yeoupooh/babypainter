@@ -30,8 +30,9 @@
         {
             this.buttonNew = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.paletteSelectBox1 = new BabyPainter.PaletteSelectBox();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.lineSelectBox1 = new BabyPainter.LineSelectBox();
+            this.paletteSelectBox1 = new BabyPainter.PaletteSelectBox();
             this.SuspendLayout();
             // 
             // buttonNew
@@ -43,18 +44,40 @@
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "New";
             this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonNew_Paint);
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // buttonExit
             // 
             this.buttonExit.Font = new System.Drawing.Font("굴림", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.buttonExit.Location = new System.Drawing.Point(118, 12);
+            this.buttonExit.Location = new System.Drawing.Point(12, 124);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(100, 50);
             this.buttonExit.TabIndex = 1;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Font = new System.Drawing.Font("굴림", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.buttonSave.Location = new System.Drawing.Point(12, 68);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(100, 50);
+            this.buttonSave.TabIndex = 6;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // lineSelectBox1
+            // 
+            this.lineSelectBox1.LineColor = System.Drawing.Color.Empty;
+            this.lineSelectBox1.Location = new System.Drawing.Point(12, 241);
+            this.lineSelectBox1.Name = "lineSelectBox1";
+            this.lineSelectBox1.SelectedLineWidth = 0F;
+            this.lineSelectBox1.Size = new System.Drawing.Size(80, 78);
+            this.lineSelectBox1.TabIndex = 5;
+            this.lineSelectBox1.LineWidthChanged += new BabyPainter.LineWidthChangedEventHandler(this.lineSelectBox1_LineWidthChanged);
             // 
             // paletteSelectBox1
             // 
@@ -65,22 +88,13 @@
             this.paletteSelectBox1.TabIndex = 4;
             this.paletteSelectBox1.ColorChanged += new BabyPainter.ColorChangedEventHandler(this.paletteSelectBox1_ColorChanged);
             // 
-            // lineSelectBox1
-            // 
-            this.lineSelectBox1.LineColor = System.Drawing.Color.Empty;
-            this.lineSelectBox1.Location = new System.Drawing.Point(12, 68);
-            this.lineSelectBox1.Name = "lineSelectBox1";
-            this.lineSelectBox1.SelectedLineWidth = 0F;
-            this.lineSelectBox1.Size = new System.Drawing.Size(80, 78);
-            this.lineSelectBox1.TabIndex = 5;
-            this.lineSelectBox1.LineWidthChanged += new BabyPainter.LineWidthChangedEventHandler(this.lineSelectBox1_LineWidthChanged);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(867, 310);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.lineSelectBox1);
             this.Controls.Add(this.paletteSelectBox1);
             this.Controls.Add(this.buttonExit);
@@ -90,8 +104,8 @@
             this.Text = "Baby Painter";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseUp);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseMove);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseMove);
             this.ResumeLayout(false);
 
         }
@@ -102,6 +116,7 @@
         private System.Windows.Forms.Button buttonExit;
         private PaletteSelectBox paletteSelectBox1;
         private LineSelectBox lineSelectBox1;
+        private System.Windows.Forms.Button buttonSave;
     }
 }
 

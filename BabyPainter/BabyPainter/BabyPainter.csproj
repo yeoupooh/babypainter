@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorChangedEvent.cs" />
+    <Compile Include="DrawingObject.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
